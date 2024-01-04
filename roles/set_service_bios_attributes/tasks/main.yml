@@ -15,5 +15,5 @@
 
 - name: Status
   debug:
-    msg: "Service attributes are not provided"
+    msg: Service attributes are not provided
   when: not service_attributes
