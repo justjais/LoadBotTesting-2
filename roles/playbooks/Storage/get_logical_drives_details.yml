@@ -1,7 +1,7 @@
 ---
 - hosts: myhosts
   connection: local
-  gather_facts: False
+  gather_facts: false
   tasks:
     - name: Get logical drives details
       get_logical_drives_details:
