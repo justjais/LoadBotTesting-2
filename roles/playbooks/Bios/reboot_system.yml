@@ -2,7 +2,7 @@
 - hosts: myhosts
   connection: local
   name: Set one-time BIOS boot device
-  gather_facts: False
+  gather_facts: false
 
   tasks:
     - name: Create session
