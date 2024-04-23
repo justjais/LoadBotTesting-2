@@ -1,3 +1,4 @@
+---
 - name: Get service BIOS attributes
   get_service_bios_attributes:
     baseuri: "{{ baseuri }}"

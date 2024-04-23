@@ -1,3 +1,4 @@
+---
 - name: Verify input Boot Order against the server boot order
   verify_uefi_boot_order:
     baseuri: "{{ baseuri }}"

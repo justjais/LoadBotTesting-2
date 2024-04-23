@@ -1,3 +1,4 @@
+---
 - name: Get network boot settings
   get_boot_settings:
     baseuri: "{{ baseuri }}"
