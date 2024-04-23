@@ -1,3 +1,4 @@
+---
 - name: Get SNMP alert destinations
   get_snmp_alert_destinations:
     baseuri: "{{ baseuri }}"
