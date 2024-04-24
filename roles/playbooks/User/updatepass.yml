@@ -24,12 +24,12 @@
         category: Accounts
         command: UpdateUserPassword
         baseuri: "{{ baseuri }}"
-        # username: "{{ username }}"
-        # password: "{{ password }}"
+            # username: "{{ username }}"
+            # password: "{{ password }}"
         account_username: "{{ loginname }}"
         account_password: "{{ new_pass }}"
         auth_token: "{{ result.session.token }}"
-        
+
     - name: Delete session using security token created by CreateSesssion above
       community.general.redfish_command:
         category: Sessions
@@ -37,3 +37,4 @@
         baseuri: "{{ baseuri }}"
         auth_token: "{{ result.session.token }}"
         session_uri: "{{ result.session.uri }}"
+

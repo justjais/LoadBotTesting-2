@@ -24,8 +24,8 @@
       command: SetBiosAttributes
       bios_attributes: "{{ bios_attr }}"
       baseuri: "{{ baseuri }}"
-      # username: "{{ username }}"
-      # password: "{{ password }}"
+        # username: "{{ username }}"
+        # password: "{{ password }}"
       auth_token: "{{ result.session.token }}"
     register: bios_attribute
 
@@ -34,8 +34,8 @@
       category: Systems
       command: PowerReboot
       baseuri: "{{ baseuri }}"
-      # username: "{{ username }}"
-      # password: "{{ password }}"
+        # username: "{{ username }}"
+        # password: "{{ password }}"
       auth_token: "{{ result.session.token }}"
     when: bios_attribute.changed
 
@@ -46,3 +46,4 @@
       baseuri: "{{ baseuri }}"
       auth_token: "{{ result.session.token }}"
       session_uri: "{{ result.session.uri }}"
+
