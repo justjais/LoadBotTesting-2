@@ -2,11 +2,11 @@
 - hosts: myhosts
   connection: local
   name: Set boot mode to Legacy BIOS and reboot
-  gather_facts: False
+  gather_facts: false
   # vars_files: iLO_redfish.yml
 
   vars:
-    - bios_attr: {"BootMode": "LegacyBios"}  # The dictionary is of the format {"attribute_name" : "attribute_value"}
+    - bios_attr: { BootMode: LegacyBios } # The dictionary is of the format {"attribute_name" : "attribute_value"}
 
   tasks:
     - name: Create session
