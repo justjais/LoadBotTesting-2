@@ -1,16 +1,16 @@
 ---
 - hosts: myhosts
   connection: local
-  gather_facts: False
+  gather_facts: false
   tasks:
-  - name: Verify service BIOS attributes
-    verify_service_bios_attributes:
-      baseuri: "{{ baseuri }}"
-      username: "{{ username }}"
-      password: "{{ password }}"
-      service_attributes: "{{ service_attributes }}"
-    register: result
+    - name: Verify service BIOS attributes
+      verify_service_bios_attributes:
+        baseuri: "{{ baseuri }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        service_attributes: "{{ service_attributes }}"
+      register: result
 
-  - name: Status
-    debug:
-      msg: "{{ result }}"
+    - name: Status
+      debug:
+        msg: "{{ result }}"
