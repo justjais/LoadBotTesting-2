@@ -2,7 +2,7 @@
 - hosts: myhosts
   connection: local
   name: Automation testing
-  gather_facts: False
+  gather_facts: false
 
   # vars:
   #   datatype: ChassisInventory
@@ -11,9 +11,9 @@
     - attribute_value: ilorest@hpe.com
     # - attribute_name: BootMode
     # - attribute_value: LegacyBios
-    - dns_server: 0.0.0.0
+    - dns_server: "0.0.0.0"
     - domain_name: tst.sgp.hp.mfg
-    - TimeZone: "Chennai"
+    - TimeZone: Chennai
     - vlanID: 7
     - new_user: bhavyatest1
     - new_pass: testpass
