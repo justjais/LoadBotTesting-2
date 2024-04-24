@@ -2,10 +2,11 @@
 # tasks file for updatepass
 - name: Update user password
   community.general.redfish_command:
-    category: Accounts
-    command: UpdateUserPassword
-    baseuri: "{{ baseuri }}"
-    username: "{{ username }}"
-    password: "{{ password }}"
-    account_username: "{{ loginname }}"
-    account_password: "{{ new_pass }}"
+    category: "Accounts"
+    command: "UpdateUserPassword"
+    baseuri: "{{ _baseuri_ }}"
+    username: "{{ _username_ }}"
+    password: "{{ _password_ }}"
+    account_username: "{{ _account_username_ }}"
+    account_password: "{{ _account_password_ }}"
+

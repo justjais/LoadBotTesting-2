@@ -1,9 +1,9 @@
 ---
 # tasks file for uploadcomp
 - name: Upload component
-  ilo_fwupdate_command:
-    category: UpdateService
-    command: UploadComponent
+  hpe.ilo.ilo_fwupdate_command:
+    category: "UpdateService"
+    command: "UploadComponent"
     baseuri: "{{ baseuri }}"
     username: "{{ username }}"
     password: "{{ password }}"
@@ -14,3 +14,4 @@
     force: "{{force | default('True') }}"
     componentsig: "{{componentsig | default('') }}"
     overwrite: "{{overwrite | default('false') }}"
+

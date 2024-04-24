@@ -2,8 +2,9 @@
 # tasks file for powerreboot
 - name: Restart system power gracefully
   community.general.redfish_command:
-    category: Systems
-    command: PowerReboot
-    baseuri: "{{ baseuri }}"
-    username: "{{ username }}"
-    password: "{{ password }}"
+    category: "Systems"
+    command: "PowerReboot"
+    baseuri: "{{ _baseuri_ }}"
+    username: "{{ _username_ }}"
+    password: "{{ _password_ }}"
+
