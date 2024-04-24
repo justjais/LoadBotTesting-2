@@ -5,7 +5,7 @@
   register: install_set_file_exists
 
 - fail:
-    msg: "Install set file is not present on the VM, in the file path {{ install_set }}"
+    msg: Install set file is not present on the VM, in the file path {{ install_set }}
   when: not install_set_file_exists.stat.exists
 
 - name: Read install set file
