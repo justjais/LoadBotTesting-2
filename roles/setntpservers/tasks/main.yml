@@ -2,10 +2,11 @@
 # tasks file for setNTPservers
 - name: Set {{ attribute_name }} to {{ attribute_value }}
   community.general.ilo_redfish_config:
-    category: Manager
-    command: SetNTPServers
-    baseuri: "{{ baseuri }}"
-    username: "{{ username }}"
-    password: "{{ password }}"
-    attribute_name: "{{ attribute_name }}"
-    attribute_value: "{{ attribute_value }}"
+    category: "Manager"
+    command: "SetNTPServers"
+    baseuri: "{{ _baseuri_ }}"
+    username: "{{ _username_ }}"
+    password: "{{ _password_ }}"
+    attribute_name: "{{ _attribute_name_ }}"
+    attribute_value: "{{ _attribute_value_ }}"
+

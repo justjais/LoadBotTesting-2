@@ -2,11 +2,12 @@
 # tasks file for setbiosdefault
 - name: Set BIOS default settings
   community.general.redfish_config:
-    category: Systems
-    command: SetBiosDefaultSettings
-    baseuri: "{{ baseuri }}"
-    username: "{{ username }}"
-    password: "{{ password }}"
+    category: "Systems"
+    command: "SetBiosDefaultSettings"
+    baseuri: "{{ _baseuri_ }}"
+    username: "{{ _username_ }}"
+    password: "{{ _password_ }}"
   register: bios_attribute
   notify:
-    - Reboot system to apply new BIOS settings
+  - Reboot system to apply new BIOS settings
+

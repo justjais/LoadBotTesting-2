@@ -2,9 +2,10 @@
 # tasks file for getfirminven
 - name: Get Firmware Inventory
   community.general.redfish_info:
-    category: Update
-    command: GetFirmwareInventory
-    baseuri: "{{ baseuri }}"
-    username: "{{ username }}"
-    password: "{{ password }}"
+    category: "Update"
+    command: "GetFirmwareInventory"
+    baseuri: "{{ _baseuri_ }}"
+    username: "{{ _username_ }}"
+    password: "{{ _password_ }}"
   register: result_attr
+

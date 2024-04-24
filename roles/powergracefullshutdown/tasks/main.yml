@@ -2,8 +2,9 @@
 # tasks file for powergracefullshutdown
 - name: Shutdown system power gracefully
   community.general.redfish_command:
-    category: Systems
-    command: PowerGracefulShutdown
-    baseuri: "{{ baseuri }}"
-    username: "{{ username }}"
-    password: "{{ password }}"
+    category: "Systems"
+    command: "PowerGracefulShutdown"
+    baseuri: "{{ _baseuri_ }}"
+    username: "{{ _username_ }}"
+    password: "{{ _password_ }}"
+

@@ -2,9 +2,10 @@
 # tasks file for getchassinven
 - name: Get chassis Inventory
   community.general.redfish_info:
-    category: Chassis
-    command: GetChassisInventory
-    baseuri: "{{ baseuri }}"
-    username: "{{ username }}"
-    password: "{{ password }}"
+    category: "Chassis"
+    command: "GetChassisInventory"
+    baseuri: "{{ _baseuri_ }}"
+    username: "{{ _username_ }}"
+    password: "{{ _password_ }}"
   register: result_attr
+

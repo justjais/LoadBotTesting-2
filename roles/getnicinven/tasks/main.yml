@@ -2,9 +2,10 @@
 # tasks file for getnicinven
 - name: Get NIC Information
   community.general.redfish_info:
-    category: Systems
-    command: GetNicInventory
-    baseuri: "{{ baseuri }}"
-    username: "{{ username }}"
-    password: "{{ password }}"
+    category: "Systems"
+    command: "GetNicInventory"
+    baseuri: "{{ _baseuri_ }}"
+    username: "{{ _username_ }}"
+    password: "{{ _password_ }}"
   register: result_attr
+

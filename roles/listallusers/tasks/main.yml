@@ -2,9 +2,10 @@
 # tasks file for listallusers
 - name: List all users
   community.general.redfish_info:
-    category: Accounts
-    command: ListUsers
-    baseuri: "{{ baseuri }}"
-    username: "{{ username }}"
-    password: "{{ password }}"
+    category: "Accounts"
+    command: "ListUsers"
+    baseuri: "{{ _baseuri_ }}"
+    username: "{{ _username_ }}"
+    password: "{{ _password_ }}"
   register: result_attr
+

@@ -2,8 +2,9 @@
 # tasks file for Logout
 - name: Delete session using security token created by CreateSesssion above
   community.general.redfish_command:
-    category: Sessions
-    command: DeleteSession
-    baseuri: "{{ baseuri }}"
-    auth_token: "{{ result.session.token }}"
-    session_uri: "{{ result.session.uri }}"
+    category: "Sessions"
+    command: "DeleteSession"
+    baseuri: "{{ _baseuri_ }}"
+    auth_token: "{{ _auth_token_ }}"
+    session_uri: "{{ _session_uri_ }}"
+

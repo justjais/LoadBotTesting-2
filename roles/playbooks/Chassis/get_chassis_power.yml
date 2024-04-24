@@ -11,35 +11,36 @@
   tasks:
     - name: Create session
       community.general.redfish_command:
-        category: Sessions
-        command: CreateSession
-        baseuri: "{{ baseuri }}"
-        username: "{{ username }}"
-        password: "{{ password }}"
+        category: "Sessions"
+        command: "CreateSession"
+        baseuri: "{{ _baseuri_ }}"
+        username: "{{ _username_ }}"
+        password: "{{ _password_ }}"
       register: result
 
     - name: Set output file
-      include_tasks: create_output_file.yml
+      ansible.builtin.include_tasks: create_output_file.yml
 
     - name: Get chassis power
       community.general.redfish_info:
-        category: Chassis
-        command: GetChassisPower
-        baseuri: "{{ baseuri }}"
-        # username: "{{ username }}"
-        # password: "{{ password }}"
+        category: "Chassis"
+        command: "GetChassisPower"
+        baseuri: "{{ _baseuri_ }}"
+            # username: "{{ username }}"
+            # password: "{{ password }}"
         auth_token: "{{ result.session.token }}"
       register: result_pow
 
     - name: Copy results to output file
-      copy:
+      ansible.builtin.copy:
         content: "{{ result_pow | to_nice_json }}"
         dest: "{{ template }}.json"
 
     - name: Delete session using security token created by CreateSesssion above
       community.general.redfish_command:
-        category: Sessions
-        command: DeleteSession
-        baseuri: "{{ baseuri }}"
+        category: "Sessions"
+        command: "DeleteSession"
+        baseuri: "{{ _baseuri_ }}"
         auth_token: "{{ result.session.token }}"
         session_uri: "{{ result.session.uri }}"
+
