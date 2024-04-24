@@ -2,7 +2,7 @@
 - hosts: myhosts
   connection: local
   name: Set Indicator LED to On
-  gather_facts: False
+  gather_facts: false
   # vars_files: iLO_redfish.yml
 
   tasks:
