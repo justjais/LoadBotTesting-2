@@ -1,3 +1,4 @@
+---
 - name: Create session
   redfish_command:
     category: Sessions

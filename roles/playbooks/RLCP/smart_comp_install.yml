@@ -2,7 +2,7 @@
 - hosts: myhosts
   connection: local
   name: Install Smart Component
-  gather_facts: False
+  gather_facts: false
 
   tasks:
     - name: Install Smart Component

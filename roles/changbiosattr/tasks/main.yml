@@ -8,7 +8,7 @@
     baseuri: "{{ baseuri }}"
     username: "{{ username }}"
     password: "{{ password }}"
-#     auth_token: "{{ result.session.token }}"
+  #     auth_token: "{{ result.session.token }}"
   register: bios_attribute
   notify:
     - Reboot system to apply new BIOS settings
