@@ -24,8 +24,8 @@
         category: Accounts
         command: UpdateUserName
         baseuri: "{{ baseuri }}"
-        # username: "{{ username }}"
-        # password: "{{ password }}"
+            # username: "{{ username }}"
+            # password: "{{ password }}"
         account_username: "{{ account_username }}"
         account_updatename: "{{ account_updatename }}"
         auth_token: "{{ result.session.token }}"
@@ -37,3 +37,4 @@
         baseuri: "{{ baseuri }}"
         auth_token: "{{ result.session.token }}"
         session_uri: "{{ result.session.uri }}"
+

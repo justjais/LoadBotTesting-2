@@ -3,16 +3,15 @@
 - name: Copy file to remote machine
   ansible.builtin.expect:
     command: >
-      scp {{ local_file_path }}
-      {{ username }}@{{ baseuri }}:{{ remote_file_path }}
+      scp {{ local_file_path }} {{ username }}@{{ baseuri }}:{{ remote_file_path }}
     responses:
-      ".*password.*": "{{ password }}\n"
-      ".*Are you sure you want to continue connecting.*": "yes\n"
-    echo: yes
+      .*password.*: "{{ password }}\n"
+      .*Are you sure you want to continue connecting.*: "yes\n"
+    echo: true
   register: scp_output
 
 - name: Install Package
-  ilo_fwupdate_command:
+  hpe.ilo.ilo_fwupdate_command:
     category: RLCP
     command: PackageInstall
     baseuri: "{{ baseuri }}"
@@ -20,3 +19,4 @@
     password: "{{ password }}"
     remote: "{{ remote_file_path }}"
     install_filename: "{{ filename }}"
+

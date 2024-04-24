@@ -6,9 +6,10 @@
 
   tasks:
     - name: Install Smart Component
-      ilo_fwupdate_command:
+      hpe.ilo.ilo_fwupdate_command:
         category: RLCP
         command: SmtCmpInstall
         baseuri: "{{ baseuri }}"
         username: "{{ username }}"
         password: "{{ password }}"
+

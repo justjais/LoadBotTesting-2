@@ -24,8 +24,8 @@
         category: Manager
         command: SetDNSserver
         baseuri: "{{ baseuri }}"
-        # username: "{{ username }}"
-        # password: "{{ password }}"
+            # username: "{{ username }}"
+            # password: "{{ password }}"
         attribute_name: DNSServers
         attribute_value: "{{ dns_server }}"
         auth_token: "{{ result.session.token }}"
@@ -35,8 +35,8 @@
         category: Manager
         command: SetDomainName
         baseuri: "{{ baseuri }}"
-        # username: "{{ username }}"
-        # password: "{{ password }}"
+            # username: "{{ username }}"
+            # password: "{{ password }}"
         attribute_name: DomainName
         attribute_value: "{{ domain_name }}"
         auth_token: "{{ result.session.token }}"
@@ -48,3 +48,4 @@
         baseuri: "{{ baseuri }}"
         auth_token: "{{ result.session.token }}"
         session_uri: "{{ result.session.uri }}"
+
