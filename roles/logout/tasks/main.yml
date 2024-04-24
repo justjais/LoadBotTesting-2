@@ -7,3 +7,4 @@
     baseuri: "{{ baseuri }}"
     auth_token: "{{ result.session.token }}"
     session_uri: "{{ result.session.uri }}"
+

@@ -9,3 +9,4 @@
     # password: "{{ password }}"
     auth_token: "{{ result.session.token }}"
   register: result_attr
+
