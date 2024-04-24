@@ -1,15 +1,15 @@
 ---
 - hosts: myhosts
   connection: local
-  gather_facts: False
+  gather_facts: false
   tasks:
-  - name: Checking server reboot status
-    check_reboot_status:
-      baseuri: "{{ baseuri }}"
-      username: "{{ username }}"
-      password: "{{ password }}"
-    register: result
+    - name: Checking server reboot status
+      check_reboot_status:
+        baseuri: "{{ baseuri }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+      register: result
 
-  - name: Server reboot status
-    debug:
-      msg: "{{ result }}"
+    - name: Server reboot status
+      debug:
+        msg: "{{ result }}"
