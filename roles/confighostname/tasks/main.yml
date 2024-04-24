@@ -5,7 +5,8 @@
     category: Manager
     command: SetManagerNic
     nic_config:
-      HostName: "{{ attribute_value }}"
+      HostName: '{{ attribute_value }}'
     baseuri: "{{ baseuri }}"
     username: "{{ username }}"
     password: "{{ password }}"
+
