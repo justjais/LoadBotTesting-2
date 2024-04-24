@@ -7,9 +7,10 @@
   tasks:
     - name: Flashfwpkg
       ilo_fwupdate_command:
-        category: UpdateService
-        command: Flashfwpkg
+        category: "UpdateService"
+        command: "Flashfwpkg"
         baseuri: "{{ baseuri }}"
         username: "{{ username }}"
         password: "{{ password }}"
-        fwpkg_file: HPE_UBM4_1.24_D.fwpkg
+        fwpkg_file: "HPE_UBM4_1.24_D.fwpkg"
+

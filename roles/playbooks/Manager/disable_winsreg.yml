@@ -11,8 +11,8 @@
   tasks:
     - name: Create session
       community.general.redfish_command:
-        category: Sessions
-        command: CreateSession
+        category: "Sessions"
+        command: "CreateSession"
         baseuri: "{{ baseuri }}"
         username: "{{ username }}"
         password: "{{ password }}"
@@ -20,18 +20,19 @@
 
     - name: Disable {{ attribute_name }}
       community.general.ilo_redfish_config:
-        category: Manager
-        command: SetWINSReg
+        category: "Manager"
+        command: "SetWINSReg"
         baseuri: "{{ baseuri }}"
-        # username: "{{ username }}"
-        # password: "{{ password }}"
+            # username: "{{ username }}"
+            # password: "{{ password }}"
         attribute_name: "{{ attribute_name }}"
         auth_token: "{{ result.session.token }}"
 
     - name: Delete session using security token created by CreateSesssion above
       community.general.redfish_command:
-        category: Sessions
-        command: DeleteSession
+        category: "Sessions"
+        command: "DeleteSession"
         baseuri: "{{ baseuri }}"
         auth_token: "{{ result.session.token }}"
         session_uri: "{{ result.session.uri }}"
+

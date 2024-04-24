@@ -2,9 +2,10 @@
 # tasks file for getBootorder
 - name: Get device boot order
   community.general.redfish_info:
-    category: Systems
-    command: GetBootOrder
+    category: "Systems"
+    command: "GetBootOrder"
     baseuri: "{{ baseuri }}"
     username: "{{ username }}"
     password: "{{ password }}"
   register: result_attr
+

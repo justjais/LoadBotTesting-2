@@ -2,8 +2,8 @@
 # tasks file for setonetimeboot
 - name: Set one-time boot device to {{ bootdevice }}
   community.general.redfish_command:
-    category: Systems
-    command: SetOneTimeBoot
+    category: "Systems"
+    command: "SetOneTimeBoot"
     bootdevice: "{{ bootdevice }}"
     baseuri: "{{ baseuri }}"
     username: "{{ username }}"
@@ -11,3 +11,4 @@
   register: bios_attribute
   # notify:
   #   - Reboot system to apply new BIOS settings
+

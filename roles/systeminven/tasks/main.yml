@@ -2,9 +2,10 @@
 # tasks file for systeminven
 - name: Getting system inventory
   community.general.redfish_info:
-    category: Systems
-    command: GetSystemInventory
+    category: "Systems"
+    command: "GetSystemInventory"
     baseuri: "{{ baseuri }}"
     username: "{{ username }}"
     password: "{{ password }}"
   register: result_attr
+

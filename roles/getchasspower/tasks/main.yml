@@ -2,9 +2,10 @@
 # tasks file for getchasspower
 - name: Get chassis power
   community.general.redfish_info:
-    category: Chassis
-    command: GetChassisPower
+    category: "Chassis"
+    command: "GetChassisPower"
     baseuri: "{{ baseuri }}"
     username: "{{ username }}"
     password: "{{ password }}"
   register: result_attr
+

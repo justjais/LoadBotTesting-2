@@ -7,9 +7,10 @@
   tasks:
     - name: Upload component
       ilo_fwupdate_command:
-        category: UpdateService
-        command: UploadComponent
+        category: "UpdateService"
+        command: "UploadComponent"
         baseuri: "{{ baseuri }}"
         username: "{{ username }}"
         password: "{{ password }}"
-        fwpkg_file: ilo5_272.fwpkg
+        fwpkg_file: "ilo5_272.fwpkg"
+

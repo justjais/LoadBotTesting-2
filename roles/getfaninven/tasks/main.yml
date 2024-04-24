@@ -2,9 +2,10 @@
 # tasks file for getfaninven
 - name: Get fans statistics
   community.general.redfish_info:
-    category: Chassis
-    command: GetFanInventory
+    category: "Chassis"
+    command: "GetFanInventory"
     baseuri: "{{ baseuri }}"
     username: "{{ username }}"
     password: "{{ password }}"
   register: result_attr
+

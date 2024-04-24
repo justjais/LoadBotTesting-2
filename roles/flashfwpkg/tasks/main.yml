@@ -2,8 +2,8 @@
 # tasks file for flashfwpkg
 - name: Flashfwpkg
   ilo_fwupdate_command:
-    category: UpdateService
-    command: Flashfwpkg
+    category: "UpdateService"
+    command: "Flashfwpkg"
     baseuri: "{{ baseuri }}"
     username: "{{ username }}"
     password: "{{ password }}"
@@ -13,3 +13,4 @@
     componentsig: "{{componentsig | default('') }}"
     overwrite: "{{overwrite | default('false') }}"
     tover: "{{overwrite | default('false') }}"
+

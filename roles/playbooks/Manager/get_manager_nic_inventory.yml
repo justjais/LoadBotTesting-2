@@ -12,8 +12,8 @@
 
   - name: Create session
     community.general.redfish_command:
-      category: Sessions
-      command: CreateSession
+      category: "Sessions"
+      command: "CreateSession"
       baseuri: "{{ baseuri }}"
       username: "{{ username }}"
       password: "{{ password }}"
@@ -24,11 +24,11 @@
 
   - name: Get Manager NIC inventory
     community.general.redfish_info:
-      category: Manager
-      command: GetManagerNicInventory
+      category: "Manager"
+      command: "GetManagerNicInventory"
       baseuri: "{{ baseuri }}"
-      # username: "{{ username }}"
-      # password: "{{ password }}"
+        # username: "{{ username }}"
+        # password: "{{ password }}"
       auth_token: "{{ result.session.token }}"
     register: result_nic
 
@@ -39,8 +39,9 @@
 
   - name: Delete session using security token created by CreateSesssion above
     community.general.redfish_command:
-      category: Sessions
-      command: DeleteSession
+      category: "Sessions"
+      command: "DeleteSession"
       baseuri: "{{ baseuri }}"
       auth_token: "{{ result.session.token }}"
       session_uri: "{{ result.session.uri }}"
+

@@ -4,3 +4,4 @@
   copy:
     content: "{{ result_attr | to_nice_json }}"
     dest: "{{ template }}.json"
+

@@ -11,8 +11,8 @@
   tasks:
     - name: Create session
       community.general.redfish_command:
-        category: Sessions
-        command: CreateSession
+        category: "Sessions"
+        command: "CreateSession"
         baseuri: "{{ baseuri }}"
         username: "{{ username }}"
         password: "{{ password }}"
@@ -23,11 +23,11 @@
 
     - name: Get chassis Inventory
       community.general.redfish_info:
-        category: Chassis
-        command: GetChassisInventory
+        category: "Chassis"
+        command: "GetChassisInventory"
         baseuri: "{{ baseuri }}"
-        # username: "{{ username }}"
-        # password: "{{ password }}"
+            # username: "{{ username }}"
+            # password: "{{ password }}"
         auth_token: "{{ result.session.token }}"
       register: result_inv
 
@@ -38,8 +38,9 @@
 
     - name: Delete session using security token created by CreateSesssion above
       community.general.redfish_command:
-        category: Sessions
-        command: DeleteSession
+        category: "Sessions"
+        command: "DeleteSession"
         baseuri: "{{ baseuri }}"
         auth_token: "{{ result.session.token }}"
         session_uri: "{{ result.session.uri }}"
+

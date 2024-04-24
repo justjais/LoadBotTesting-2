@@ -11,8 +11,8 @@
   tasks:
     - name: Create session
       community.general.redfish_command:
-        category: Sessions
-        command: CreateSession
+        category: "Sessions"
+        command: "CreateSession"
         baseuri: "{{ baseuri }}"
         username: "{{ username }}"
         password: "{{ password }}"
@@ -24,11 +24,11 @@
     #No storage  - https://15.146.51.202/redfish/v1/Systems/1/Storage/
     - name: Get disk inventory
       community.general.redfish_info:
-        category: Systems
-        command: GetDiskInventory
+        category: "Systems"
+        command: "GetDiskInventory"
         baseuri: "{{ baseuri }}"
-        # username: "{{ username }}"
-        # password: "{{ password }}"
+            # username: "{{ username }}"
+            # password: "{{ password }}"
         auth_token: "{{ result.session.token }}"
       register: result_storage
 
@@ -39,8 +39,9 @@
 
     - name: Delete session using security token created by CreateSesssion above
       community.general.redfish_command:
-        category: Sessions
-        command: DeleteSession
+        category: "Sessions"
+        command: "DeleteSession"
         baseuri: "{{ baseuri }}"
         auth_token: "{{ result.session.token }}"
         session_uri: "{{ result.session.uri }}"
+

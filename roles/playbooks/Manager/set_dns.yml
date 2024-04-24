@@ -12,8 +12,8 @@
   tasks:
     - name: Create session
       community.general.redfish_command:
-        category: Sessions
-        command: CreateSession
+        category: "Sessions"
+        command: "CreateSession"
         baseuri: "{{ baseuri }}"
         username: "{{ username }}"
         password: "{{ password }}"
@@ -21,30 +21,31 @@
 
     - name: Set DNS Server to {{ dns_server }}
       community.general.ilo_redfish_config:
-        category: Manager
-        command: SetDNSserver
+        category: "Manager"
+        command: "SetDNSserver"
         baseuri: "{{ baseuri }}"
-        # username: "{{ username }}"
-        # password: "{{ password }}"
-        attribute_name: DNSServers
+            # username: "{{ username }}"
+            # password: "{{ password }}"
+        attribute_name: "DNSServers"
         attribute_value: "{{ dns_server }}"
         auth_token: "{{ result.session.token }}"
 
     - name: Set Domain name to {{ domain_name }}
       community.general.ilo_redfish_config:
-        category: Manager
-        command: SetDomainName
+        category: "Manager"
+        command: "SetDomainName"
         baseuri: "{{ baseuri }}"
-        # username: "{{ username }}"
-        # password: "{{ password }}"
-        attribute_name: DomainName
+            # username: "{{ username }}"
+            # password: "{{ password }}"
+        attribute_name: "DomainName"
         attribute_value: "{{ domain_name }}"
         auth_token: "{{ result.session.token }}"
 
     - name: Delete session using security token created by CreateSesssion above
       community.general.redfish_command:
-        category: Sessions
-        command: DeleteSession
+        category: "Sessions"
+        command: "DeleteSession"
         baseuri: "{{ baseuri }}"
         auth_token: "{{ result.session.token }}"
         session_uri: "{{ result.session.uri }}"
+
