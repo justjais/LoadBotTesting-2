@@ -1,3 +1,4 @@
+---
 - name: Verify BIOS attributes
   verify_bios_attributes:
     baseuri: "{{ baseuri }}"
@@ -5,7 +6,7 @@
     password: "{{ password }}"
     bios_attributes: "{{ bios_config }}"
   register: result
-  ignore_errors: yes
+  ignore_errors: true
 
 - name: Saving verification result
   set_stats:
