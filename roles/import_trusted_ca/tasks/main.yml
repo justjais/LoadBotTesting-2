@@ -1,14 +1,15 @@
 ---
-- name: Import Trusted CA
-  ilo_security:
-    category: Manager
-    command: ImportTrustedCA
-    baseuri: "{{ baseuri }}"
-    username: "{{ username }}"
-    password: "{{ password }}"
-    ca_file: "{{ ca_file }}"
-  register: result
+- name: Validate server authentication input provided by user
+  when:
+  - (username is not defined or password is not defined) and (auth_token is not defined)
+  ansible.builtin.fail:
+    msg: "username/password or auth_token is mandatory"
 
-- name: Status
-  debug:
+    - name: Fail when more than one valid authentication method is provided
+      when:
+      - ((username is defined or password is defined) and auth_token is defined)
+      ansible.builtin.fail:
+        msg: "Only one authentication method is allowed. Provide either username/password or auth_token."
+
     msg: "{{ result }}"
+

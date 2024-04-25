@@ -1,9 +1,10 @@
 ---
 # tasks file for ledoff
 - name: Turn LED off
-  community.general.redfish_command:
+  hpe.ilo.ilo_device:
     category: Chassis
     command: IndicatorLedOff
     baseuri: "{{ baseuri }}"
     username: "{{ username }}"
     password: "{{ password }}"
+

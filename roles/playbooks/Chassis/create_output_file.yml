@@ -4,9 +4,11 @@
     run_once: true
 
   - name: Define file to place results
-    set_fact: template={{rootdir}}/{{host}}/{{host}}_{{datatype}}_{{timestamp}}
+    ansible.builtin.set_fact:
+      template: '{{rootdir}}/{{host}}/{{host}}_{{datatype}}_{{timestamp}}'
 
   - name: Create dropoff directory for host
-    file:
+    ansible.builtin.file:
       path: "{{ rootdir }}/{{ host }}"
       state: directory
+
