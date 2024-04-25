@@ -23,8 +23,8 @@
       category: Manager
       command: SetTimeZone
       baseuri: "{{ baseuri }}"
-      # username: "{{ username }}"
-      # password: "{{ password }}"
+        # username: "{{ username }}"
+        # password: "{{ password }}"
       attribute_name: TimeZone
       attribute_value: "{{ attribute_value }}"
       auth_token: "{{ result.session.token }}"
@@ -36,3 +36,4 @@
       baseuri: "{{ baseuri }}"
       auth_token: "{{ result.session.token }}"
       session_uri: "{{ result.session.uri }}"
+

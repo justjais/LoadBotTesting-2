@@ -1,12 +1,17 @@
 ---
-- name: Check User Privileges
-  ilo_manage:
+- name: Validate server authentication input provided by user
+  when:
+  - (auth_token is not defined)
+  ansible.builtin.fail:
+    msg: "auth_token is mandatory"
+
+  register: user_privileges
+
+- register: result
+  hpe.ilo.ilo_manage:
     category: Systems
     command: CheckUserPrivileges
     baseuri: "{{ baseuri }}"
     auth_token: "{{ auth_token }}"
-  register: user_privileges
+    required_permissions: "{{ required_permissions | default(['HostBIOSConfigPriv', 'HostNICConfigPriv', 'HostStorageConfigPriv']) }}"
 
-- name: User Privileges
-  debug:
-    msg: "{{ user_privileges }}"

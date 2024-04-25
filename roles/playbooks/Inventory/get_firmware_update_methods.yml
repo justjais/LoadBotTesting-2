@@ -19,20 +19,20 @@
       register: result
 
     - name: Set output file
-      include_tasks: create_output_file.yml
+      ansible.builtin.include_tasks: create_output_file.yml
 
     - name: Get Firmware Update Capabilities
       community.general.redfish_info:
         category: Update
         command: GetFirmwareUpdateCapabilities
         baseuri: "{{ baseuri }}"
-        # username: "{{ username }}"
-        # password: "{{ password }}"
+            # username: "{{ username }}"
+            # password: "{{ password }}"
         auth_token: "{{ result.session.token }}"
       register: result_fw
 
     - name: Copy results to output file
-      copy:
+      ansible.builtin.copy:
         content: "{{ result_fw | to_nice_json }}"
         dest: "{{ template }}.json"
 
@@ -43,3 +43,4 @@
         baseuri: "{{ baseuri }}"
         auth_token: "{{ result.session.token }}"
         session_uri: "{{ result.session.uri }}"
+

@@ -10,3 +10,4 @@
     new_username: "{{ new_user }}"
     new_password: "{{ new_pass }}"
     roleid: "{{ role_id }}"
+
