@@ -2,12 +2,12 @@
 - hosts: myhosts
   connection: local
   name: Update user password
-  gather_facts: False
+  gather_facts: false
   # vars_files: iLO_redfish.yml
 
   vars:
-  - account_username: Bhavya_check1
-  - account_updatename: Bhav
+    - account_username: Bhavya_check1
+    - account_updatename: Bhav
 
   tasks:
     - name: Create session

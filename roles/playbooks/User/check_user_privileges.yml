@@ -1,11 +1,11 @@
 ---
 - hosts: myhosts
   connection: local
-  gather_facts: False
+  gather_facts: false
   tasks:
     - name: Validate server authentication input provided by user
       fail:
-        msg: "auth_token is mandatory"
+        msg: auth_token is mandatory
       when:
         - (auth_token is not defined)
 
