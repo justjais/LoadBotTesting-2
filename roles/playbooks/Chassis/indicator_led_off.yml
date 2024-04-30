@@ -2,7 +2,7 @@
 - hosts: myhosts
   connection: local
   name: Set Indicator LED to Off
-  gather_facts: False
+  gather_facts: false
   # vars_files: iLO_redfish.yml
 
   tasks:
@@ -16,7 +16,7 @@
       register: result
 
     - name: Turn LED off
-      ilo_device:
+      hpe.ilo.ilo_device:
         category: Chassis
         command: IndicatorLedOff
         baseuri: "{{ baseuri }}"

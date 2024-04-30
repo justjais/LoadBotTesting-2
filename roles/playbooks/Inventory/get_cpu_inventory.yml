@@ -2,7 +2,7 @@
 - hosts: myhosts
   connection: local
   name: CPU Inventory
-  gather_facts: False
+  gather_facts: false
   # vars_files: iLO_redfish.yml
 
   vars:
@@ -19,7 +19,7 @@
       register: result
 
     - name: Set output file
-      include_tasks: create_output_file.yml
+      ansible.builtin.include_tasks: create_output_file.yml
 
     - name: Get CPU Inventory
       community.general.redfish_info:
@@ -32,7 +32,7 @@
       register: result_inv
 
     - name: Copy results to output file
-      copy:
+      ansible.builtin.copy:
         content: "{{ result_inv | to_nice_json }}"
         dest: "{{ template }}.json"
 
