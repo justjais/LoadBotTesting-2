@@ -2,11 +2,11 @@
 - hosts: myhosts
   connection: local
   name: Set boot mode to UEFI and reboot
-  gather_facts: False
+  gather_facts: false
   # vars_files: iLO_redfish.yml
 
   vars:
-    - bios_attr: {"BootMode": "Uefi"}  # The dictionary is of the format {"attribute_name" : "attribute_value"}
+    - bios_attr: { BootMode: Uefi } # The dictionary is of the format {"attribute_name" : "attribute_value"}
 
   tasks:
     - name: Create session
@@ -28,7 +28,6 @@
         # password: "{{ password }}"
         auth_token: "{{ result.session.token }}"
       register: bios_attribute
-
 
     - name: Reboot system to apply new BIOS settings
       community.general.redfish_command:
