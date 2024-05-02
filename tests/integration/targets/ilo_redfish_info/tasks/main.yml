@@ -1,3 +1,4 @@
+---
 - name: Get sessions
   community.general.ilo_redfish_info:
     category: Sessions
