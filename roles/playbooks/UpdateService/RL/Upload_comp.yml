@@ -2,7 +2,7 @@
 - hosts: myhosts
   connection: local
   name: Upload iLO5 component
-  gather_facts: False
+  gather_facts: false
 
   tasks:
     - name: Upload component
