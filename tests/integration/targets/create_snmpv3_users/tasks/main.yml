@@ -1,3 +1,4 @@
+---
 - name: Creating SNMPv3 users
   create_snmpv3_users:
     baseuri: "{{ baseuri }}"
