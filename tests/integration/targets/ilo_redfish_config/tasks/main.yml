@@ -1,3 +1,4 @@
+---
 - name: Set NTP Servers
   community.general.ilo_redfish_config:
     category: Manager

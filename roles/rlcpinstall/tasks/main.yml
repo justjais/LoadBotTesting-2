@@ -6,9 +6,9 @@
       scp {{ local_file_path }}
       {{ username }}@{{ baseuri }}:{{ remote_file_path }}
     responses:
-      ".*password.*": "{{ password }}\n"
-      ".*Are you sure you want to continue connecting.*": "yes\n"
-    echo: yes
+      .*password.*: "{{ password }}\n"
+      .*Are you sure you want to continue connecting.*: "yes\n"
+    echo: true
   register: scp_output
 
 - name: Install Package

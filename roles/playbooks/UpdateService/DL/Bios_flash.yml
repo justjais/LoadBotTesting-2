@@ -1,8 +1,8 @@
 ---
 - hosts: myhosts
   connection: local
-  name: Bios Update service 
-  gather_facts: False
+  name: Bios Update service
+  gather_facts: false
 
   tasks:
     - name: Flashfwpkg
