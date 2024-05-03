@@ -2,7 +2,7 @@
 - hosts: myhosts
   connection: local
   name: Set iLO NIC settings
-  gather_facts: False
+  gather_facts: false
   # vars_files: iLO_redfish.yml
 
   vars:
@@ -34,7 +34,6 @@
         attribute_name: "{{ ntp_atrrname }}"
         attribute_value: "{{ ntp_attrvalue }}"
         auth_token: "{{ result.session.token }}"
-
 
     - name: Set DNS Server to {{ dns_server }}
       community.general.ilo_redfish_config:
