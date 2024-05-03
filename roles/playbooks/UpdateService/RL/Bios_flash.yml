@@ -2,7 +2,7 @@
 - hosts: myhosts
   connection: local
   name: Update service
-  gather_facts: False
+  gather_facts: false
 
   tasks:
     - name: Turn system power off

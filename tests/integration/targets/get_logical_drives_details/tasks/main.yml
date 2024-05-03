@@ -1,3 +1,4 @@
+---
 - name: Get logical drives details
   get_logical_drives_details:
     baseuri: "{{ baseuri }}"
