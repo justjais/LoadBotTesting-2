@@ -2,7 +2,7 @@
 - hosts: myhosts
   connection: local
   name: Get disk inventory
-  gather_facts: False
+  gather_facts: false
   # vars_files: iLO_redfish.yml
 
   vars:
@@ -19,9 +19,8 @@
       register: result
 
     - name: Define output file
-      include_tasks: create_output_file.yml
+      ansible.builtin.include_tasks: create_output_file.yml
 
-    #No storage  - https://15.146.51.202/redfish/v1/Systems/1/Storage/
     - name: Get disk inventory
       community.general.redfish_info:
         category: Systems
@@ -33,7 +32,7 @@
       register: result_storage
 
     - name: Copy results to output file
-      copy:
+      ansible.builtin.copy:
         content: "{{ result_storage | to_nice_json }}"
         dest: "{{ template }}.json"
 

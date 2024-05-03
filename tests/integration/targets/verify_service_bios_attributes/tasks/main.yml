@@ -1,3 +1,4 @@
+---
 - name: Verify service BIOS attributes
   verify_service_bios_attributes:
     baseuri: "{{ baseuri }}"
