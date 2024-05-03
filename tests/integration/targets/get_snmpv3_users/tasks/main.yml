@@ -1,3 +1,4 @@
+---
 - name: Get SNMPv3 users
   get_snmpv3_users:
     baseuri: "{{ baseuri }}"
