@@ -2,11 +2,11 @@
 - hosts: myhosts
   connection: local
   name: Install Smart Component
-  gather_facts: False
+  gather_facts: false
 
   tasks:
     - name: Install Smart Component
-      ilo_fwupdate_command:
+      hpe.ilo.ilo_fwupdate_command:
         category: RLCP
         command: SmtCmpInstall
         baseuri: "{{ baseuri }}"

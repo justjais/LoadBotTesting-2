@@ -1,33 +1,32 @@
 ---
 - hosts: myhosts
   connection: local
-  gather_facts: False
+  gather_facts: false
   tasks:
     - name: Validate server authentication input provided by user
-      fail:
-        msg: "username/password or cert_file/key_file or auth_token is mandatory"
       when:
         - (username is not defined or password is not defined) and (cert_file is not defined or key_file is not defined) and (auth_token is not defined)
+      ansible.builtin.fail:
+        msg: username/password or cert_file/key_file or auth_token is mandatory
 
     - name: Fail when more than one valid authentication method is provided
-      fail:
-        msg: "Only one authentication method is allowed. Provide either username/password or cert_file/key_file or auth_token."
       when:
-        - ((username is defined or password is defined) and (cert_file is defined or key_file is defined) and auth_token is defined) or
-          ((username is defined or password is defined) and (cert_file is defined or key_file is defined)) or
-          ((username is defined or password is defined) and auth_token is defined) or
-          ((cert_file is defined or key_file is defined) and auth_token is defined)
+        - ((username is defined or password is defined) and (cert_file is defined or key_file is defined) and auth_token is defined) or ((username is defined or password
+          is defined) and (cert_file is defined or key_file is defined)) or ((username is defined or password is defined) and auth_token is defined) or ((cert_file
+          is defined or key_file is defined) and auth_token is defined)
+      ansible.builtin.fail:
+        msg: Only one authentication method is allowed. Provide either username/password or cert_file/key_file or auth_token.
 
     - name: Deleting specified SNMPv3 users when username and password are defined
       block:
-        - ilo_snmp:
+        - register: result
+          hpe.ilo.ilo_snmp:
             category: Manager
             command: DeleteSpecifiedSNMPv3Users
             baseuri: "{{ baseuri }}"
             username: "{{ username }}"
             password: "{{ password }}"
             snmpv3_usernames: "{{ snmpv3_usernames }}"
-          register: result
 
         - name: Status
           debug:
@@ -37,14 +36,14 @@
 
     - name: Deleting specified SNMPv3 users when cert_file and key_file are defined
       block:
-        - ilo_snmp:
+        - register: result
+          hpe.ilo.ilo_snmp:
             category: Manager
             command: DeleteSpecifiedSNMPv3Users
             baseuri: "{{ baseuri }}"
             cert_file: "{{ cert_file }}"
             key_file: "{{ key_file }}"
             snmpv3_usernames: "{{ snmpv3_usernames }}"
-          register: result
 
         - name: Status
           debug:
@@ -54,13 +53,13 @@
 
     - name: Deleting specified SNMPv3 users when auth_token is defined
       block:
-        - ilo_snmp:
+        - register: result
+          hpe.ilo.ilo_snmp:
             category: Manager
             command: DeleteSpecifiedSNMPv3Users
             baseuri: "{{ baseuri }}"
             auth_token: "{{ auth_token }}"
             snmpv3_usernames: "{{ snmpv3_usernames }}"
-          register: result
 
         - name: Status
           debug:
