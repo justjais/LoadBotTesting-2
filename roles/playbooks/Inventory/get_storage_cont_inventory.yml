@@ -2,7 +2,7 @@
 - hosts: myhosts
   connection: local
   name: Get storage controller inventory
-  gather_facts: False
+  gather_facts: false
   # vars_files: iLO_redfish.yml
 
   vars:
