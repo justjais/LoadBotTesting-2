@@ -16,12 +16,12 @@
       register: result
 
     - name: Turn LED off
-      ilo_device:
+      hpe.ilo.ilo_device:
         category: Chassis
         command: IndicatorLedOff
         baseuri: "{{ baseuri }}"
-        # username: "{{ username }}"
-        # password: "{{ password }}"
+            # username: "{{ username }}"
+            # password: "{{ password }}"
         auth_token: "{{ result.session.token }}"
 
     - name: Delete session using security token created by CreateSesssion above

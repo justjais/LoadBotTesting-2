@@ -6,7 +6,7 @@
 
   tasks:
     - name: Flashfwpkg
-      ilo_fwupdate_command:
+      hpe.ilo.ilo_fwupdate_command:
         category: UpdateService
         command: Flashfwpkg
         baseuri: "{{ baseuri }}"
