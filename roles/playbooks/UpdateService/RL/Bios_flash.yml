@@ -2,7 +2,7 @@
 - hosts: myhosts
   connection: local
   name: Update service
-  gather_facts: False
+  gather_facts: false
 
   tasks:
     - name: Turn system power off
@@ -14,7 +14,7 @@
         password: "{{ password }}"
 
     - name: Flashfwpkg
-      ilo_fwupdate_command:
+      hpe.ilo.ilo_fwupdate_command:
         category: UpdateService
         command: Flashfwpkg
         baseuri: "{{ baseuri }}"

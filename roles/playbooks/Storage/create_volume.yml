@@ -1,15 +1,15 @@
 ---
 - name: Validate server authentication input provided by user
-  fail:
-    msg: "username/password or auth_token is mandatory"
   when:
     - (username is not defined or password is not defined) and (auth_token is not defined)
+  ansible.builtin.fail:
+    msg: username/password or auth_token is mandatory
 
 - name: Fail when more than one valid authentication method is provided
-  fail:
-    msg: "Only one authentication method is allowed. Provide either username/password or auth_token."
   when:
     - ((username is defined or password is defined) and auth_token is defined)
+  ansible.builtin.fail:
+    msg: Only one authentication method is allowed. Provide either username/password or auth_token.
 
 - name: Create volumes when username and password are defined
   block:
@@ -43,5 +43,5 @@
     - name: Status
       debug:
         msg: "{{ result }}"
-     
+
   when: auth_token is defined
