@@ -1,7 +1,7 @@
 ---
 # tasks file for ledoff
 - name: Turn LED off
-  ilo_device:
+  hpe.ilo.ilo_device:
     category: Chassis
     command: IndicatorLedOff
     baseuri: "{{ baseuri }}"
