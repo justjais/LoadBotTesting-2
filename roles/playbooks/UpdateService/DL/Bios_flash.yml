@@ -1,12 +1,12 @@
 ---
 - hosts: myhosts
   connection: local
-  name: Bios Update service 
-  gather_facts: False
+  name: Bios Update service
+  gather_facts: false
 
   tasks:
     - name: Flashfwpkg
-      ilo_fwupdate_command:
+      hpe.ilo.ilo_fwupdate_command:
         category: UpdateService
         command: Flashfwpkg
         baseuri: "{{ baseuri }}"
