@@ -2,11 +2,11 @@
 - hosts: myhosts
   connection: local
   name: Update service iLO6
-  gather_facts: False
+  gather_facts: false
 
   tasks:
     - name: Flashfwpkg
-      ilo_fwupdate_command:
+      hpe.ilo.ilo_fwupdate_command:
         category: UpdateService
         command: Flashfwpkg
         baseuri: "{{ baseuri }}"
